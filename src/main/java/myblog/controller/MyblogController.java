@@ -19,9 +19,9 @@ import myblog.service.MyblogService;
 public class MyblogController {
 	@Autowired
 	public MyblogService myblogService;
-	
+	//mypage 부분
 	@RequestMapping(value="/myblog/mypage", method=RequestMethod.GET)
-	public ModelAndView index() {
+	public ModelAndView mypage() {
 		System.out.println("mypage 들어옴");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/myblog/mypage"); 
@@ -43,6 +43,14 @@ public class MyblogController {
 		mav.addObject("pg", pg);
 		mav.setViewName("jsonView");
 		
+		return mav;
+	}
+	//writeBlog 부분
+	@RequestMapping(value="/myblog/writeBlog", method=RequestMethod.GET)
+	public ModelAndView writeBlog() {
+		System.out.println("writeBlog 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/writeBlog"); 
 		return mav;
 	}
 	

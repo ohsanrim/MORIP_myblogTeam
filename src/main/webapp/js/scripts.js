@@ -19,11 +19,18 @@ function likeClick(seq){
 		$('#likeCheck'+seq).val('unlike');
 	}	
 }
-//작성 버튼 클릭 시  OptionModal 창 띄워주기
+/*작성 버튼 클릭 시  OptionModal 창 띄워주기*/
 $('#writeOptionBtn').click(function(){
 	$('#writeOptionModal').modal();
 });
-
+/*글 작성 모달에서 에세이 버튼 클릭시 */
+$('#writeBlogImg').click(function(){
+	location.href="/morip/myblog/writeBlog";
+});
+/*글 작성 모달에서 여행기 버튼 클릭시 */
+$('#travelsWriteImg').click(function(){
+	alert("asafasfag");
+});
 //날짜 형식 변환
 Date.prototype.format = function (f) {
     if (!this.valueOf()) return " ";

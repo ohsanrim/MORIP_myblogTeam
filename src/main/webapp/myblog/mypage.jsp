@@ -28,10 +28,11 @@
   </head>
   <body>
     <header>
+      <nav class="navBar">
+       	네비게이션 바
+      </nav>
       <div class="backgroundImg">
-        <nav class="navBar">
-          네비게이션 바
-        </nav>
+
       </div>
       <div class="layer">
       </div>
