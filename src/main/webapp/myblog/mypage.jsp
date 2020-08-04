@@ -10,9 +10,7 @@
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
     <!--AOS 라이브러리-->
      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
      <!--hover.css-->
@@ -68,7 +66,7 @@
             <p>게시물</p>
           </div>
         </div>
-        <button type="button" class="btn btn-outline-secondary" style="font-size:9px; border-radius:20px; width:100px;">글 작성</button>
+        <button type="button" class="btn btn-outline-secondary" id="writeOptionBtn" style="font-size:9px; border-radius:20px; width:100px;">글 작성</button>
         <button type="button" class="btn btn-outline-secondary" style="font-size:9px; border-radius:20px; width:100px;">회원정보수정</button>
       </div>
 
@@ -163,8 +161,8 @@
     </footer>
   </body>
   <!---->
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <!------------- Modal --------------->
+  <div class="modal fade" id="followModal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -206,15 +204,39 @@
               <td id="modal_userID">USER_ID</td>
               <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
             </tr>
-            <tr>
-              <td id="modal_userID">USER_ID</td>
-              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
-            </tr>
+
 
           </table>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div id="count" value="1"></div>
+      </div>
+    </div>
+  </div>
+   <!-- 글작성 BTN -->
+  <div class="modal fade" id="writeOptionModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <div class="modal-body">
+        	<button type="button" class="close" data-dismiss="modal">×</button>
+        	<div class="bodyHeader">새로 만들기</div>
+			<div class="writeOptionWrapper">
+				<div class="travelsWriteWrapper">
+					<div id="travelsWriteImg" class="hvr-grow-shadow"><i id="writeOptionImg" class="fas fa-suitcase" ></i></div>
+					<div class="optionContentWrapper">
+						<h5>여행기</h5>
+						<div id="optionText">여행 기록을 코스별, 일정별로 깔끔하게 기록해보세요.</div>
+					</div>
+				</div>
+				<div class="writeBlogWrapper">
+					<div id="writeBlogImg" class="hvr-grow-shadow"><i id="writeOptionImg" class="far fa-edit"></i></div>
+					<div class="optionContentWrapper">
+						<h5>M에세이</h5>
+						<div id="optionText">여행을 자유롭게 나만의 에세이로 기록해보세요.</div>
+					</div>
+				</div>
+			</div>
         </div>
         <div id="count" value="1"></div>
       </div>

@@ -7,7 +7,6 @@ html, body{
   background-color: #fffffb;
 }
 body{
-  font-family:quicksand;
   color:#3b3b3b;
 }
 li{
@@ -28,7 +27,7 @@ header{
   position:absolute;
 }
 .backgroundImg{
-  background:url(../img/architecture.jpg) no-repeat 50% 50%;
+  background:url(../image/architecture.jpg) no-repeat 50% 50%;
   background-size: cover;
   position: absolute;
   top: 0;
@@ -56,6 +55,7 @@ header{
   width:70%;
   padding-top:50px;
   height:1500px;
+  background-color:#ffffff;
 }
 /*userImg profile*/
 .profileImg_wrapper{
@@ -178,7 +178,7 @@ header{
   width:100%;
 }
 
-/* �븯�떒 紐⑸줉 由ъ뒪�듃 */
+/*무한 스크롤 jsp*/
 .myblogList{
 display: flex;
 
@@ -186,13 +186,17 @@ display: flex;
 #myblog_feed{
   width:300px;
   margin:10px;
-  border:1px solid #b0bec5;
   padding:10px;
+  background-color: #dcdcd3;
+  /*border-radius: 20px;*/
+  
 }
 
 .listImg{
   width:250px;
   height:200px;
+  /*
+  border-radius: 20px;*/
 }
 .myblog_img{
   overflow: hidden;
@@ -205,11 +209,13 @@ display: flex;
   margin:10px;
   margin-bottom:10px;
   text-align: left;
+  
 }
 .myblog_content{
-  font-size: 12px;
+  font-size: 18px;
   margin:10px;
   text-align: left;
+  font-family: 'Nanum Pen Script', cursive;
 }
 .myblog_travleDay{
   font-size: 10px;
@@ -229,7 +235,7 @@ display: flex;
   flex-grow: 1;
 
 }
-/*紐⑤떖李� �젅�씠�븘�썐*/
+/*follow 모달창*/
 .modal-title{
  font-size: 17px;
  text-align:left;
@@ -249,4 +255,61 @@ display: flex;
 #modal_userFollow{
   margin:10px;
   text-align: right;
+}
+/*글작성BTN 모달창*/
+.modal-body{
+	text-align:center;
+}
+.bodyHeader{
+	height:50px;
+	font-family: 'Gothic A1', sans-serif;
+	color:#8aacc8;
+	font-size:23px;
+}
+.writeOptionWrapper{
+	margin:20px;
+	height:200px;
+	display:flex;
+	justify-content:center;
+}
+.travelsWriteWrapper{
+	width:200px;
+	height:200px;
+}
+.writeBlogWrapper{
+	width:200px;
+	height:300px;
+}
+#travelsWriteImg,#writeBlogImg{
+	display:flex;
+	width:100px;
+	height:100px;
+	margin:0 auto;
+	text-align:center;
+	border-radius: 75px;
+	border:2px solid #8aacc8;;
+	align-items: center;
+	justify-content:center;
+	cursor:pointer;
+}
+#writeOptionImg{
+	font-size: 30px;
+	color:#8aacc8;
+}
+#optionText{
+	width:150px;
+	font-size:8px;
+	margin:0 auto;
+	color:#525f72;
+}
+.optionContentWrapper{
+	margin:0 auto;
+	width:100%;
+	height:100px;
+}
+.optionContentWrapper h5{
+	margin-top:10px;
+	height:30px;
+	color:#525f72;
+	font-weight: bold;
 }

@@ -1,12 +1,12 @@
 
 /*팔로우 버튼 클릭*/
 $('.follower').click(function(){
-  $('div.modal').modal();
+  $('#followModal').modal();
   $('.modal-title').text("팔로우");
 });
 /*팔로잉 버튼 클릭*/
 $('.following').click(function(){
-  $('div.modal').modal();
+  $('#followModal').modal();
   $('.modal-title').text("팔로잉");
 });
 //좋아요 클릭
@@ -19,6 +19,11 @@ function likeClick(seq){
 		$('#likeCheck'+seq).val('unlike');
 	}	
 }
+//작성 버튼 클릭 시  OptionModal 창 띄워주기
+$('#writeOptionBtn').click(function(){
+	$('#writeOptionModal').modal();
+});
+
 //날짜 형식 변환
 Date.prototype.format = function (f) {
     if (!this.valueOf()) return " ";
