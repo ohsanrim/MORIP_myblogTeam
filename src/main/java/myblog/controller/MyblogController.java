@@ -53,6 +53,36 @@ public class MyblogController {
 		mav.setViewName("/myblog/writeBlog"); 
 		return mav;
 	}
-	
-
+	//travlesWrite 부분
+	@RequestMapping(value="/myblog/travlesWrite1", method=RequestMethod.GET)
+	public ModelAndView travlesWrite1() {
+		System.out.println("travlesWrite1 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/travlesWrite1"); 
+		return mav;
+	}
+	//travlesWrite 부분
+	@RequestMapping(value="/myblog/travlesWrite2", method=RequestMethod.GET)
+	public ModelAndView travlesWrite2() {
+		System.out.println("travlesWrite2 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/travlesWrite2"); 
+		return mav;
+	}
+	//travlesWrite 부분
+	@RequestMapping(value="/myblog/travlesWrite3", method=RequestMethod.GET)
+	public ModelAndView travlesWrite3() {
+		System.out.println("travlesWrite3 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/travlesWrite3"); 
+		return mav;
+	}
+	//travlesWrite 부분
+	@RequestMapping(value="/myblog/travlesWrite4", method=RequestMethod.GET)
+	public ModelAndView travlesWrite4() {
+		System.out.println("travlesWrite4 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/travlesWrite4"); 
+		return mav;
+	}
 }

@@ -1,13 +1,8 @@
-
-
 html, body{
   margin:0;
   padding:0;
   width:100%;
-  background-color: #fffffb;
-}
-body{
-  color:#3b3b3b;
+  height:100%;
 }
 li{
   list-style: none;
@@ -17,6 +12,7 @@ header{
   width:100%;
   position: fixed;
   height: 700px;
+  margin:0;
 }
 .navBar{
   width:100%;
@@ -55,12 +51,11 @@ header{
   border-radius: 20px;
   position: relative;
   top:280px;
-  background-color: white;
   margin: auto;
   width:70%;
   padding-top:50px;
   height:1500px;
-  background-color:#ffffff;
+  background-color:#fcfcf6;
 }
 /*userImg profile*/
 .profileImg_wrapper{
