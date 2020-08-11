@@ -4,8 +4,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -15,8 +13,8 @@
      <!--hover.css-->
      <link href="../css/hover.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/travlesWrite.css" rel="stylesheet" />
-    <link href="../css/step2.css" rel="stylesheet" />
+    <link href="../css/myblog/travlesWrite.css" rel="stylesheet" />
+    <link href="../css/myblog/step2.css" rel="stylesheet" />
     <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -115,5 +113,5 @@
   <!--AOS 라이브러리-->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Core theme JS-->
-  <script src="../js/travlesWrite.js"></script>
+  <script src="../js/myblog/travlesWrite.js"></script>
 </html>

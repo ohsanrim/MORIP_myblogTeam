@@ -46,11 +46,18 @@ public class MyblogController {
 		return mav;
 	}
 	//writeBlog 부분
-	@RequestMapping(value="/myblog/writeBlog", method=RequestMethod.GET)
-	public ModelAndView writeBlog() {
-		System.out.println("writeBlog 들어옴");
+	@RequestMapping(value="/myblog/writeBlog1", method=RequestMethod.GET)
+	public ModelAndView writeBlog1() {
+		System.out.println("writeBlog1 들어옴");
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/myblog/writeBlog"); 
+		mav.setViewName("/myblog/writeBlog1"); 
+		return mav;
+	}
+	@RequestMapping(value="/myblog/writeBlog2", method=RequestMethod.GET)
+	public ModelAndView writeBlog() {
+		System.out.println("writeBlog2 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/writeBlog2"); 
 		return mav;
 	}
 	//travlesWrite 부분
@@ -83,6 +90,13 @@ public class MyblogController {
 		System.out.println("travlesWrite4 들어옴");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/myblog/travlesWrite4"); 
+		return mav;
+	}
+	@RequestMapping(value="/myblog/view", method=RequestMethod.GET)
+	public ModelAndView view() {
+		System.out.println("view 들어옴");
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/myblog/view"); 
 		return mav;
 	}
 }

@@ -28,7 +28,7 @@ header{
   position:absolute;
 }
 .backgroundImg{
-  background:url(../image/architecture.jpg) no-repeat 50% 50%;
+  background:url(../../image/myblog/architecture.jpg) no-repeat 50% 50%;
   background-size: cover;
   position: absolute;
   top: 0;

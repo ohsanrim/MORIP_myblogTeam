@@ -4,8 +4,6 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -15,10 +13,10 @@
      <!--hover.css-->
      <link href="../css/hover.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/travlesWrite.css" rel="stylesheet" />
+    <link href="../css/myblog/travlesWrite.css" rel="stylesheet" />
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="../css/step4.css" rel="stylesheet" />
+    <link href="../css/myblog/step4.css" rel="stylesheet" />
 
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -83,8 +81,8 @@
             </div>
           </div>
           <div class="saveOptionWrapper">
-            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; margin:5px; width:200px; height:40px;" >미리보기</button><br>
-            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; margin:5px; width:200px; height:40px;">저장하기</button>
+            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; margin:5px; width:70%; height:40px;" >미리보기</button><br>
+            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; margin:5px; width:70%; height:40px;">저장하기</button>
           </div>
         </div>
       </div>
@@ -98,5 +96,5 @@
   <!--AOS 라이브러리-->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Core theme JS-->
-  <script src="../js/travlesWrite.js"></script>
+  <script src="../js/myblog/travlesWrite.js"></script>
 </html>
