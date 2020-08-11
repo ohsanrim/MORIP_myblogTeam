@@ -60,6 +60,10 @@ public class MyblogController {
 		mav.setViewName("/myblog/writeBlog2"); 
 		return mav;
 	}
+	@RequestMapping(value="/myblog/save", method=RequestMethod.POST)
+	public void saveWriteBlog() {
+		System.out.println("save 들어와서 저장하는 중...");
+	}
 	//travlesWrite 부분
 	@RequestMapping(value="/myblog/travlesWrite1", method=RequestMethod.GET)
 	public ModelAndView travlesWrite1() {

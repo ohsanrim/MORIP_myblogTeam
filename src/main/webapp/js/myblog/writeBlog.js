@@ -26,3 +26,4 @@ $('#backwardBtn').click(function(){
 $('#forwardBtn').click(function(){
   location.href="writeBlog2";
 });
+

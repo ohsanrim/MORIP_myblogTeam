@@ -4,24 +4,34 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-
+	
     <!--AOS 라이브러리-->
      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-     <!--hover.css-->
-     <link href="../css/hover.css" rel="stylesheet" />
+    
+    <!--hover.css-->
+    <link href="../css/hover.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/myblog/travlesWrite.css" rel="stylesheet" />
+    <link href="../css/myblog/writeBlog.css" rel="stylesheet" />
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="../css/myblog/step4.css" rel="stylesheet" />
+    
+	<!-- include jquery -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!-- include Bootstrap and fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+    <!-- include summernote css/js-->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+
+    <!-- include summernote plugin-->
+    <script type="text/javascript" src="../js/summernote-map-plugin-master/summernote-map-plugin.js"></script>
+  	<script type="text/javascript" src="../js/summernote-image-shapes-master/summernote-image-shapes.js"></script>
+	
     <title></title>
   </head>
   <body>
@@ -57,6 +67,7 @@
           <!--본격적인 에디터 본문-->
           <div class="editorContentWrapper">
             <div class="editorContent">
+            	<textarea name="content" id="summernote" value=""></textarea>
             </div>
           </div>
         </div>
@@ -69,20 +80,63 @@
             </div>
           </div>
           <div class="saveOptionWrapper">
-            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; margin:5px; width:70%; height:40px;" >미리보기</button><br>
-            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; margin:5px; width:70%; height:40px;">저장하기</button>
+            <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; border:1px solid gray; margin:5px; width:70%; height:40px;" >미리보기</button><br>
+            <button type="button" id="saveBtn" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; border:1px solid gray; margin:5px; width:70%; height:40px;">저장하기</button>
           </div>
         </div>
       </div>
     </article>
   </body>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-  <!-- Third party plugin JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
   <!--AOS 라이브러리-->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- Core theme JS-->
   <script src="../js/myblog/writeBlog.js"></script>
+    <!-- Bootstrap core JS-->
+  <script> 
+  $('#saveBtn').click(function(){
+	  var markupStr = $('#summernote').summernote('code');
+	  if(markupStr==''){
+		  alert("내용을 입력해주세요");
+	  } else {
+	    	$.ajax({
+	    		type : 'post',
+	    		url : '/morip/myblog/save',
+	    		data : 'content='+markupStr,
+	    		success : function(){
+	    				alert("데이터 전송 완료");
+	    			
+	    		},
+	    		error : function(e){
+					console.log(e);
+				}
+	    	});
+	  }
+  });
+  $('#summernote').summernote({
+	  height:500,
+      focus: true,
+      lang: 'en-EN',
+      map: {
+          apiKey: 'AIzaSyC4wQxb6hFjF1nrDEg6ePZcTbmswq89hAE',
+          zoom: 13
+      },
+      popover: {
+          image: [
+              ['custom', ['imageShapes']],
+              ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+              ['float', ['floatLeft', 'floatRight', 'floatNone']],
+              ['remove', ['removeMedia']]
+          ],
+      }, 
+      lang: 'en-US',
+      toolbar: [
+          ['style', ['bold', 'italic', 'underline', 'clear']],
+          ['fontsize', ['fontsize']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['insert', ['link', 'picture', 'map', 'table']]
+      ]
+  });
+</script>
+
 </html>
