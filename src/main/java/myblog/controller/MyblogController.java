@@ -137,6 +137,7 @@ public class MyblogController {
 		mav.setViewName("/myblog/travlesWrite4"); 
 		return mav;
 	}
+	//*********************view 부분*****************************
 	@RequestMapping(value="/myblog/view", method=RequestMethod.GET)
 	public ModelAndView view(@RequestParam(value="seq") String seq) {
 		System.out.println("view 들어옴");
@@ -146,6 +147,14 @@ public class MyblogController {
 		mav.addObject("myblogDTO",myblogDTO);
 		System.out.println(myblogDTO.getStartdate());
 		mav.setViewName("/myblog/view"); 
+		mav.addObject("seq", seq);
 		return mav;
+	}
+	@RequestMapping(value="/myblog/deleteBlogBoard", method=RequestMethod.GET)
+	public void deleteBlogBoard(@RequestParam(value="seq") String seq) {
+		System.out.println("deleteBlogBoard 들어옴");
+		System.out.println(seq);
+		myblogService.deleteBlogBoard(Integer.parseInt(seq));
+		ModelAndView mav = new ModelAndView();
 	}
 }

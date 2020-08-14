@@ -160,7 +160,7 @@ $(document).ready(function(){
 								$('.content').css('height',height+'px');
 								list += '<div class="myblogList" data-aos="fade-up" data-aos-duration="3000">';
 							}
-							list+='<div id="myblog_feed" class="hvr-grow-shadow">';
+							list+='<div id="myblog_feed" class="hvr-grow-shadow" onclick="viewEnter('+seq+')">';
 							list+='<div class="myblog_img">';
 							list+='<img class="listImg" src="../storage/'+items.mainimage+'"></div>';
             				list+='<div class="myblog_info"><div class="myblog_subject">'+items.subject+'</div>';

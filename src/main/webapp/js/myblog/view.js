@@ -1,4 +1,4 @@
-
+var view_seq = $('.view_seq').val();  // 
 	$(window).scroll(function () {
 				var height = $(document).scrollTop();
 				if(height>=550){
@@ -39,7 +39,32 @@
 	  alert("수정 버튼 클릭");
 	});
 	$('#deleteBoard').click(function(){
-	  alert("삭제 버튼 클릭");
+	Swal.fire({
+		  title: '글을 삭제하시겠습니까???',
+		  text: "삭제하시면 다시 복구시킬 수 없습니다.",
+		  icon: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'delete'
+		}).then((result) => {
+		  if (result.value) {
+				  	$.ajax({
+					type: 'get',
+					url: '/morip/myblog/deleteBlogBoard',
+					data: 'seq='+view_seq,
+					success: function(){
+						Swal.fire(
+						      'Deleted!',
+						      '파일이 삭제되었습니다!',
+						      'success'
+						 )
+					}   //success
+				});   //AJAX
+			    location.href="mypage";
+		  }
+		})
+		
 	});
 
 	/*댓글 달기 버튼을 클릭했을 때 */
@@ -83,7 +108,7 @@
 	  }
 	/*삭제 버튼 클릭시*/
 	function deleteBtnClick(seq){
-	  alert(seq+"삭제 버튼 클릭");
+		confirm('', '승인할까요?');
 	}
 
 	/*수정 버튼 클릭시*/

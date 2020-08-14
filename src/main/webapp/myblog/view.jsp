@@ -18,10 +18,12 @@
     <!-- 구글 폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/myblog/view.css">
+    
   </head>
   <body>
     <div class="navber-header">
       <!--여기가 네비게이셔션 바가 들어갈 자리-->
+      <input type="hidden" class="view_seq" value="${seq }">
       <div class="step1">
         <img src="../image/myblog/morip.png" href="#" id="morip">
       </div>
@@ -115,13 +117,13 @@
                 </div>
               </div>
               <div class="view_replyBtnWrapper">
-                <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(1)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   답글
                 </div>
-                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(1)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   삭제
                 </div>
-                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(1)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   수정
                 </div>
               </div>
@@ -145,10 +147,10 @@
                 </div>
               </div>
               <div class="view_replyBtnWrapper">
-                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   삭제
                 </div>
-                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   수정
                 </div>
               </div>
@@ -174,13 +176,13 @@
                 </div>
               </div>
               <div class="view_replyBtnWrapper">
-                <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   답글
                 </div>
-                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   삭제
                 </div>
-                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                   수정
                 </div>
               </div>
@@ -221,13 +223,13 @@
                     </div>
                   </div>
                   <div class="view_replyBtnWrapper">
-                    <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                    <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                       답글
                     </div>
-                    <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                    <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                       삭제
                     </div>
-                    <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(2)"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+                    <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
                       수정
                     </div>
                   </div>
@@ -258,7 +260,8 @@
         <i class="fas fa-trash-alt"></i>
       </div>
     </div>
-
   </body>
+  <!-- sweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="../js/myblog/view.js"></script>
 </html>

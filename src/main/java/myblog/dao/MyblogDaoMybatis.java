@@ -33,4 +33,9 @@ public class MyblogDaoMybatis implements MyblogDAO {
 		return sqlSession.selectOne("myblogSQL.getView",seq);
 	}
 
+	@Override
+	public void deleteBlogBoard(int seq) {
+		sqlSession.delete("myblogSQL.deleteBlogBoard",seq);
+	}
+
 }

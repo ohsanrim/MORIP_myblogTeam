@@ -12,4 +12,6 @@ public interface MyblogDAO {
 
 	MyblogDTO getView(int seq);
 
+	void deleteBlogBoard(int seq);
+
 }

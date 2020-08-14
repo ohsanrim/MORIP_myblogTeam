@@ -30,4 +30,9 @@ public class MyblogServiceImpl implements MyblogService {
 	public MyblogDTO viewPage(int seq) {
 		return myblogDAO.getView(seq);
 	}
+
+	@Override
+	public void deleteBlogBoard(int seq) {
+		myblogDAO.deleteBlogBoard(seq);
+	}
 }
