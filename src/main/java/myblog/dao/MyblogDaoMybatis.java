@@ -23,4 +23,14 @@ public class MyblogDaoMybatis implements MyblogDAO {
 		return sqlSession.selectList("myblogSQL.infinityScroll", map);
 	}
 
+	@Override
+	public void insertWriteBlog(Map<String, String> map) {
+		sqlSession.update("myblogSQL.insertWriteBlog", map);
+	}
+
+	@Override
+	public MyblogDTO getView(int seq) {
+		return sqlSession.selectOne("myblogSQL.getView",seq);
+	}
+
 }

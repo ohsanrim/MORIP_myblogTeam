@@ -42,12 +42,14 @@
         </nav>
       </div>
     </header>
+    <input type="hidden" id="subject" value="${subject }">
+    <input type="hidden" id="backgroundImg" value="${fileName }">
     <article class="contentWrapper">
       <div class="content">
         <div class="writeEditor">
           <!--상태 진행 바-->
           <div class="contentHeader" style=" ">
-            에세이 작성
+            	에세이 작성
           </div>
           <div class="stepBarWrapper">
             <input type="hidden" id="stepPg" value="2">
@@ -82,6 +84,22 @@
           <div class="saveOptionWrapper">
             <button type="button" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; border:1px solid gray; margin:5px; width:70%; height:40px;" >미리보기</button><br>
             <button type="button" id="saveBtn" class="btn btn-outline-secondary" style="font-size:13px; border-radius:20px; border:1px solid gray; margin:5px; width:70%; height:40px;">저장하기</button>
+          	            <!--switch-->
+            <div class="saveOption">
+              <div class="switch">
+                  <p>공개 설정</p>
+                  <div class="primary-switch">
+                    <input type="checkbox" id="primary-switch" checked>
+                    <label for="primary-switch"></label>
+                  </div>
+                  <div class="switch_infomation">
+                    <p>
+                    공개 여부를 설정합니다.<br>
+                    활성화 시 다른 사용자에게 공개되며,<br>
+                    비활성화시 다른유저에게 보이지 않습니다.</p>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -94,17 +112,27 @@
     <!-- Bootstrap core JS-->
   <script> 
   $('#saveBtn').click(function(){
+	  let publicOption = 0;
+	  if($("#primary-switch").is(":checked")){
+		  publicOption = '0';
+	  } else {
+		  publicOption = '1';
+	  }
+
 	  var markupStr = $('#summernote').summernote('code');
-	  if(markupStr==''){
+	  let content = markupStr.replace(/&nbsp;/g, " ");
+	  
+	  console.log(content);
+	  if(markupStr.trim()==''){
 		  alert("내용을 입력해주세요");
 	  } else {
 	    	$.ajax({
 	    		type : 'post',
 	    		url : '/morip/myblog/save',
-	    		data : 'content='+markupStr,
+	    		data : 'content='+content+"&subject="+$('#subject').val()+"&backgroundImg="+$('#backgroundImg').val()+"&publicoption="+publicOption,
 	    		success : function(){
-	    				alert("데이터 전송 완료");
-	    			
+	    			alert("여행기 작성이 완료되었습니다!");
+	    				location.href="mypage";
 	    		},
 	    		error : function(e){
 					console.log(e);
@@ -120,14 +148,6 @@
           apiKey: 'AIzaSyC4wQxb6hFjF1nrDEg6ePZcTbmswq89hAE',
           zoom: 13
       },
-      popover: {
-          image: [
-              ['custom', ['imageShapes']],
-              ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
-              ['float', ['floatLeft', 'floatRight', 'floatNone']],
-              ['remove', ['removeMedia']]
-          ],
-      }, 
       lang: 'en-US',
       toolbar: [
           ['style', ['bold', 'italic', 'underline', 'clear']],

@@ -13,7 +13,7 @@
      <!--hover.css-->
      <link href="../css/hover.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/myblog/travlesWrite.css" rel="stylesheet" />
+    <link href="../css/myblog/writeBlog.css" rel="stylesheet" />
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="../css/myblog/step2.css" rel="stylesheet" />
@@ -25,6 +25,7 @@
     <title></title>
   </head>
   <body>
+  <form method="post" id="writeBlogForm" name="writeBlogForm"  enctype="multipart/form-data" action=""> 
     <header>
       <div class="header">
         <nav class="navBar">
@@ -56,24 +57,26 @@
             </div>
           </div>
           <!--본격적인 에디터 본문-->
-          <div class="editorContentWrapper">
-            <div class="editorContent">
-              <div class="inputWrapper">
-                <div class="input">
-                  <div class="subjectInput">
-                    <h6>여행기 제목</h6><br>
-                    <input type="text" name="first_name" placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required class="single-input">
-                  </div>
-                  <div class="imgInput">
-                    <h6>배경 사진 선택</h6><br>
-                    <div class="userChoiceImg">
-                    </div>
-                    <input class="backgroungImgChoice" type="file">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          
+	          <div class="editorContentWrapper">
+	            <div class="editorContent">
+	              <div class="inputWrapper">
+	                <div class="input">
+	                  <div class="subjectInput">
+	                    <h6>여행기 제목</h6><br>
+	                    <input type="text" name="subject" id="subject" placeholder="여행기 제목을 입력하세요!" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'" required class="single-input">
+	                  </div>
+	                  <div class="imgInput">
+	                    <h6>배경 사진 선택</h6><br>
+	                    <div class="userChoiceImg">
+	                    	<img id="bgImg" src="#" style="width:100%; height:100%;"/>
+	                    </div>
+	                    <input name="backgroundImg" id="backgroundImg" class="backgroungImgChoice" type="file">
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
         </div>
         <div class="writeOption">
           <div class="stepChoiceWrapper">
@@ -86,6 +89,7 @@
         </div>
       </div>
     </article>
+    </form>
   </body>
   <!-- Bootstrap core JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

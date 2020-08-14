@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class MyblogDTO {
-	private int seq;
+	private int blogboardtable_seq;
 	private String nickname;
 	private String subject;
 	private String content;
@@ -16,4 +16,5 @@ public class MyblogDTO {
 	private int hit;
 	private int reply;
 	private Date logtime;
+	private String publicoption;
 }

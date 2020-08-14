@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 public class SpringConfiguration {
@@ -52,5 +53,4 @@ public class SpringConfiguration {
 		transactionManager.setDataSource(dataSource());
 		return transactionManager;
 	}
-
 }

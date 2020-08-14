@@ -76,83 +76,7 @@
             <td style="border-top: 1px solid; width:92%;"></td>
           </th>
         </table>
-        <div class="myblogList" data-aos="fade-up" data-aos-duration="3000">
-          <!--첫번째 리스트-->
-          <div id="myblog_feed" class="hvr-grow-shadow">
-            <div class="myblog_img">
-              <img class="listImg"src="../image/myblog/architecture.jpg" alt="">
-            </div>
-            <div class="myblog_info">
-              <div class="myblog_subject">
-                Lorem ipsum dolor sit amet, consectetur
-              </div>
-              <div class="myblog_content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <div class="myblog_userFunction">
-                <div class="like">
-                  <i class="far fa-heart"></i>
-                </div>
-                <div class="reply">
-                  <i class="fas fa-comment-dots"></i>
-                </div>
-                <div class="myblog_travleDay">
-                  20.06.03~20.06.08
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--두번째 리스트-->
-          <div id="myblog_feed" class="hvr-grow-shadow">
-            <div class="myblog_img">
-              <img class="listImg"src="../image/myblog/gyungju.jpg" alt="">
-            </div>
-            <div class="myblog_info">
-              <div class="myblog_subject">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <div class="myblog_content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <div class="myblog_userFunction">
-                <div class="like">
-                  <i class="far fa-heart"></i>
-                </div>
-                <div class="reply">
-                  <i class="fas fa-comment-dots"></i>
-                </div>
-                <div class="myblog_travleDay">
-                  20.06.03~20.06.08
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--세번쨰 리스트-->
-          <div id="myblog_feed" class="hvr-grow-shadow">
-            <div class="myblog_img">
-              <img class="listImg"src="../image/myblog/game.png" alt="">
-            </div>
-            <div class="myblog_info">
-              <div class="myblog_subject">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <div class="myblog_content">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <div class="myblog_userFunction">
-                <div class="like">
-                  <i class="far fa-heart"></i>
-                </div>
-                <div class="reply">
-                  <i class="fas fa-comment-dots"></i>
-                </div>
-                <div class="myblog_travleDay">
-                  20.06.03~20.06.08
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -180,7 +104,7 @@
             </tr>
             <tr>
               <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/circus.png"></td>
-              <td id="modal_userID">USER_ID</td>
+              <t2d id="modal_userID">USER_ID</td>
               <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
             </tr>
             <tr>
@@ -216,7 +140,6 @@
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
-
         <div class="modal-body">
         	<button type="button" class="close" data-dismiss="modal">×</button>
         	<div class="bodyHeader">새로 만들기</div>

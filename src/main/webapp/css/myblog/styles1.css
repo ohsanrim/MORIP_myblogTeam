@@ -183,13 +183,14 @@ header{
 display: flex;
 
 }
-#myblog_feed{
+.myblogList .hvr-grow-shadow{
   width:300px;
+  height:300ㄴpx;
   margin:10px;
   padding:10px;
   background-color: #dcdcd3;
   /*border-radius: 20px;*/
-  
+  cursor:pointer;
 }
 
 .listImg{
@@ -209,13 +210,16 @@ display: flex;
   margin:10px;
   margin-bottom:10px;
   text-align: left;
-  
+  height:50px;
+  overflow: hidden;
 }
 .myblog_content{
   font-size: 18px;
   margin:10px;
   text-align: left;
   font-family: 'Nanum Pen Script', cursive;
+  height:75px;
+  overflow:hidden;
 }
 .myblog_travleDay{
   font-size: 10px;

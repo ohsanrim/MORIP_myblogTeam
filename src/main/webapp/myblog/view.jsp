@@ -29,28 +29,26 @@
       <div class="step3"><img src="../image/myblog/person.png" id="person"></div>
     </div>
     <header>
-      <div class="backgroundImg">
-          <nav class="navbar navbar-default" style="margin: 0;">
-            <div class="container">
-            </div>
-          </nav>
-        </div>
-        <div class="subjectbackground">
+      <div class="background">
+      	<div class="backgroundImg" style="background: url('../storage/${myblogDTO.mainimage}') no-repeat 50% 50%; background-size: cover;">s </div>
+      	<div class="backgroundCover" ></div>
+      </div>
+      <div class="subjectbackground">
           <div class="blogSubjectWrapper">
             <div class="dateWrapper">
-              19.04.08 - 19.04.10
+              ${myblogDTO.startdate} ~ ${myblogDTO.enddate}
             </div>
             <div class="subjectWrapper">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              ${myblogDTO.subject}
             </div>
             <div class="userinfowrapper">
               <img class="view_userImg"src="../image/myblog/pic01.jpg">
               <div class="view_userId">
-                작성자
+              	${myblogDTO.nickname}
               </div>
             </div>
           </div>
-        </div>
+      </div>
     </header>
     <div class="sideBar">
       <div class="likeOption">
@@ -65,31 +63,9 @@
     <article class="contentContainer">
       <div class="contentWrapper">
         <div class="content">
-          <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim mi consectetur, fermentum tellus id, facilisis nisl. Nam malesuada est sollicitudin orci tempor volutpat. Sed faucibus rutrum gravida. Quisque eget libero sodales, pellentesque metus a, lobortis dolor. Sed aliquet tellus vitae sem lobortis facilisis. Pellentesque a ligula non neque consequat vulputate vel vitae nibh. Maecenas at odio eget eros fermentum tristique eget non libero.
-
-          Sed at augue luctus enim faucibus dignissim scelerisque vitae dolor. Praesent in congue turpis, id finibus purus. Pellentesque accumsan, arcu eget pharetra dignissim, sapien nunc porttitor ipsum, sed tincidunt neque diam sed tortor. Praesent ut dignissim risus, sit amet dignissim nunc. Quisque mattis pharetra elementum. Suspendisse ut vestibulum ligula, condimentum dignissim lorem. Maecenas in cursus ante, et condimentum mauris. Nullam luctus sagittis est, a vehicula nisl vulputate non. Aliquam tempus risus ac augue dictum, a auctor lacus ullamcorper. Suspendisse vel interdum urna.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim mi consectetur, fermentum tellus id, facilisis nisl. Nam malesuada est sollicitudin orci tempor volutpat. Sed faucibus rutrum gravida. Quisque eget libero sodales, pellentesque metus a, lobortis dolor. Sed aliquet tellus vitae sem lobortis facilisis. Pellentesque a ligula non neque consequat vulputate vel vitae nibh. Maecenas at odio eget eros fermentum tristique eget non libero.
-
-          Sed at augue luctus enim faucibus dignissim scelerisque vitae dolor. Praesent in congue turpis, id finibus purus. Pellentesque accumsan, arcu eget pharetra dignissim, sapien nunc porttitor ipsum, sed tincidunt neque diam sed tortor. Praesent ut dignissim risus, sit amet dignissim nunc. Quisque mattis pharetra elementum. Suspendisse ut vestibulum ligula, condimentum dignissim lorem. Maecenas in cursus ante, et condimentum mauris. Nullam luctus sagittis est, a vehicula nisl vulputate non. Aliquam tempus risus ac augue dictum, a auctor lacus ullamcorper. Suspendisse vel interdum urna.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim mi consectetur, fermentum tellus id, facilisis nisl. Nam malesuada est sollicitudin orci tempor volutpat. Sed faucibus rutrum gravida. Quisque eget libero sodales, pellentesque metus a, lobortis dolor. Sed aliquet tellus vitae sem lobortis facilisis. Pellentesque a ligula non neque consequat vulputate vel vitae nibh. Maecenas at odio eget eros fermentum tristique eget non libero.
-
-          Sed at augue luctus enim faucibus dignissim scelerisque vitae dolor. Praesent in congue turpis, id finibus purus. Pellentesque accumsan, arcu eget pharetra dignissim, sapien nunc porttitor ipsum, sed tincidunt neque diam sed tortor. Praesent ut dignissim risus, sit amet dignissim nunc. Quisque mattis pharetra elementum. Suspendisse ut vestibulum ligula, condimentum dignissim lorem. Maecenas in cursus ante, et condimentum mauris. Nullam luctus sagittis est, a vehicula nisl vulputate non. Aliquam tempus risus ac augue dictum, a auctor lacus ullamcorper. Suspendisse vel interdum urna.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim mi consectetur, fermentum tellus id, facilisis nisl. Nam malesuada est sollicitudin orci tempor volutpat. Sed faucibus rutrum gravida. Quisque eget libero sodales, pellentesque metus a, lobortis dolor. Sed aliquet tellus vitae sem lobortis facilisis. Pellentesque a ligula non neque consequat vulputate vel vitae nibh. Maecenas at odio eget eros fermentum tristique eget non libero.
-
-          Sed at augue luctus enim faucibus dignissim scelerisque vitae dolor. Praesent in congue turpis, id finibus purus. Pellentesque accumsan, arcu eget pharetra dignissim, sapien nunc porttitor ipsum, sed tincidunt neque diam sed tortor. Praesent ut dignissim risus, sit amet dignissim nunc. Quisque mattis pharetra elementum. Suspendisse ut vestibulum ligula, condimentum dignissim lorem. Maecenas in cursus ante, et condimentum mauris. Nullam luctus sagittis est, a vehicula nisl vulputate non. Aliquam tempus risus ac augue dictum, a auctor lacus ullamcorper. Suspendisse vel interdum urna.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim mi consectetur, fermentum tellus id, facilisis nisl. Nam malesuada est sollicitudin orci tempor volutpat. Sed faucibus rutrum gravida. Quisque eget libero sodales, pellentesque metus a, lobortis dolor. Sed aliquet tellus vitae sem lobortis facilisis. Pellentesque a ligula non neque consequat vulputate vel vitae nibh. Maecenas at odio eget eros fermentum tristique eget non libero.
-
-          Sed at augue luctus enim faucibus dignissim scelerisque vitae dolor. Praesent in congue turpis, id finibus purus. Pellentesque accumsan, arcu eget pharetra dignissim, sapien nunc porttitor ipsum, sed tincidunt neque diam sed tortor. Praesent ut dignissim risus, sit amet dignissim nunc. Quisque mattis pharetra elementum. Suspendisse ut vestibulum ligula, condimentum dignissim lorem. Maecenas in cursus ante, et condimentum mauris. Nullam luctus sagittis est, a vehicula nisl vulputate non. Aliquam tempus risus ac augue dictum, a auctor lacus ullamcorper. Suspendisse vel interdum urna.
-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dignissim mi consectetur, fermentum tellus id, facilisis nisl. Nam malesuada est sollicitudin orci tempor volutpat. Sed faucibus rutrum gravida. Quisque eget libero sodales, pellentesque metus a, lobortis dolor. Sed aliquet tellus vitae sem lobortis facilisis. Pellentesque a ligula non neque consequat vulputate vel vitae nibh. Maecenas at odio eget eros fermentum tristique eget non libero.
-
-          Sed at augue luctus enim faucibus dignissim scelerisque vitae dolor. Praesent in congue turpis, id finibus purus. Pellentesque accumsan, arcu eget pharetra dignissim, sapien nunc porttitor ipsum, sed tincidunt neque diam sed tortor. Praesent ut dignissim risus, sit amet dignissim nunc. Quisque mattis pharetra elementum. Suspendisse ut vestibulum ligula, condimentum dignissim lorem. Maecenas in cursus ante, et condimentum mauris. Nullam luctus sagittis est, a vehicula nisl vulputate non. Aliquam tempus risus ac augue dictum, a auctor lacus ullamcorper. Suspendisse vel interdum urna.
-          </p>
+          <div class="contentInner">
+          	${myblogDTO.content}
+          </div>
           <div class="view_boardOption">
             <div class="view_like">
               <div class="view_likeWrapper">
@@ -111,7 +87,7 @@
               <div class="view_replyContentInputWrapper">
                 <div class="reply_contentInput">
                     <div class="reply_userID">
-                      gkflfldldlsmal
+                      ${myblogDTO.nickname}
                     </div>
                     <textarea id="replyInputBox" class="form-control" aria-label="With textarea"></textarea>
                     <div class="reply_inputOption">
