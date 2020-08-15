@@ -14,12 +14,12 @@
 		select * from blogboardtable where blogboardtable_seq=#{seq}
 	</select>
 	<delete id="deleteBlogBoard" parameterType="Integer">
-		delete blogboardtable where blogboardtable_seq=#{seq}
+		delete blogboardtable where blogboardtable_seq=#{seq} and ref=#{seq}
 	</delete>
 	<insert id="insertReply" parameterType="java.util.Map">
 	 insert into blogboardtable(blogboardtable_seq, nickname, content, logtime, ref, step, pseq)  values(blogboardtable_seq.nextval, #{nickname }, #{content}, sysdate, #{ref}, #{step}, #{pseq})
 	</insert>
 	<select id="loadReply" resultType="myblog" parameterType="Integer">
-		select * from blogboardtable where ref=#{ref} and step!=0
+		select * from blogboardtable where ref=#{ref} and step!=0 order by step, logtime
 	</select>
 </mapper>

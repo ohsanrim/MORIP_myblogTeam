@@ -7,10 +7,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -66,9 +68,10 @@ public class MyblogController {
 	}
 	@ResponseBody
 	@RequestMapping(value="/myblog/imageSave", method=RequestMethod.POST)
-	public void imageSave(HttpSession session,@RequestParam(value="backgroundImg") MultipartFile backgroundImg) {
+	public String imageSave(HttpSession session,@RequestParam(value="backgroundImg") MultipartFile backgroundImg) {
 		String nickname = "뚜르라기";
-		String fileName=backgroundImg.getOriginalFilename();
+		UUID uid = UUID.randomUUID();
+		String fileName=uid.toString() + "_" + backgroundImg.getOriginalFilename();
 		String filePath = "D:\\spring\\MORIP\\MORIP_myblogTeam\\src\\main\\webapp\\storage";
 		File file = new File(filePath,fileName);
 		try {
@@ -78,10 +81,10 @@ public class MyblogController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		ModelAndView mav = new ModelAndView();
+		fileName = file.getName();
 		System.out.println("save 들어옴: "+nickname+","+fileName);
 		System.out.println("실제폴더:"+filePath);
-		
+		return fileName;
 	}
 	@RequestMapping(value="/myblog/writeBlog2", method=RequestMethod.GET)
 	public ModelAndView writeBlog2(HttpSession session , @RequestParam Map <String, String> map){
@@ -101,6 +104,30 @@ public class MyblogController {
 		myblogService.insertWriteBlog(map);
 		System.out.println("save 들어와서 저장하는 중...");
 	}
+	
+	@RequestMapping(value="/myblog/imageUpload", method= {RequestMethod.POST})
+    @ResponseBody
+    public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
+		UUID uid = UUID.randomUUID();
+		String fileName=uid.toString() + "_" + file.getOriginalFilename();
+		String filePath = "D:\\spring\\MORIP\\MORIP_myblogTeam\\src\\main\\webapp\\storage";
+		File file1 = new File(filePath,fileName);
+		try {
+			FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(file1));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("getname()"+file1.getName());
+        try {
+            //UploadFile uploadedFile = imageService.store(file);
+            return ResponseEntity.ok().body("../storage/"+file1.getName());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
+    }
 	
 	//**********************travlesWrite 부분*****************************
 	@RequestMapping(value="/myblog/travlesWrite1", method=RequestMethod.GET)
@@ -172,4 +199,5 @@ public class MyblogController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+
 }

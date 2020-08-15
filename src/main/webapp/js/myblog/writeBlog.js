@@ -40,8 +40,9 @@ $('document').ready(function(){
 				url: "/morip/myblog/imageSave",
 				//data: sendingData, //imageboardWriteForm안의 0번째 방에있는 data들을 모두 가져간다
 				data: new FormData($('#writeBlogForm')[0]),
-				success: function(){
-					location.href="writeBlog2?"+sendingData;
+				dataType:"text",
+				success: function(fileName){
+					location.href="writeBlog2?"+'subject='+$('#subject').val()+'&fileName='+fileName;
 				},error: function(err){
 					console.log(err);
 				}

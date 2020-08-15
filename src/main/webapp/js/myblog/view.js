@@ -39,7 +39,11 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 	  alert("수정 버튼 클릭");
 	});
 	$('#deleteBoard').click(function(){
-	Swal.fire({
+		deleteBoard(view_seq);
+	});
+	//삭제하는 함수
+	function deleteBoard(seq){
+		Swal.fire({
 		  title: '글을 삭제하시겠습니까???',
 		  text: "삭제하시면 다시 복구시킬 수 없습니다.",
 		  icon: 'warning',
@@ -52,7 +56,7 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 				  	$.ajax({
 					type: 'get',
 					url: '/morip/myblog/deleteBlogBoard',
-					data: 'seq='+view_seq,
+					data: 'seq='+seq,
 					success: function(){
 						Swal.fire(
 						      'Deleted!',
@@ -61,11 +65,14 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 						 )
 					}   //success
 				});   //AJAX
-			    location.href="mypage";
+				if(seq==view_seq){
+					location.href="mypage";
+				} else {
+					loadReply();
+				}
 		  }
 		})
-		
-	});
+	}
 
 	/*댓글 달기 버튼을 클릭했을 때 */
 	$('.view_replyWrapper').click(function(){
@@ -108,7 +115,7 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 	  }
 	/*삭제 버튼 클릭시*/
 	function deleteBtnClick(seq){
-		confirm('', '승인할까요?');
+		deleteBoard(seq);
 	}
 
 	/*수정 버튼 클릭시*/
@@ -158,8 +165,9 @@ function loadReply(){
 				success: function(data){
 					if(data.list.length!='0'){   //데이터가 존재할 때
 						$.each(data.list, function(index, items){
-							console.log(items.content);
+							//console.log(items.content);
 							let seq = items.blogboardtable_seq;
+							let pseq = items.pseq;
 							let replyForm=
 							          '<div class="view_replyBoard" id="view_replyBoard'+seq+'">'+
 							            '<div class="view_replyListWrapper">'+
@@ -193,8 +201,8 @@ function loadReply(){
 							          '</div>';
 							  if(items.step==1){  //본문글의 댓글일 때
 							  	$('.replyInsertDiv').append(replyForm);
-							  } else{
-							  	$('#view_replyBoard'+items.pseq).append(replyForm);
+							  } else {
+							  	$('#view_replyBoard'+pseq).append(replyForm);
 							  	$('#view_replyBoard'+seq).css('padding-left','70px');
 							  }
 						});
