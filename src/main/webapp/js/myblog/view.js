@@ -92,7 +92,7 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 	            '<div class="reply_userID">'+
 	             '로그인한 유저이름'+
 	            '</div>'+
-	            '<textarea id="replyInputBox" class="form-control" aria-label="With textarea"></textarea>'+
+	            '<textarea id="replyInputBox'+seq+'" class="form-control" aria-label="With textarea"></textarea>'+
 	            '<div class="reply_inputOption">'+
 	              '<button id="resetBtn" class="btn btn-light" onclick="resetBtn()">취소</button>'+
 	              '<button id="insertBtn" class="btn btn-light" onclick="insertBtn('+seq+')">등록</button>'+
@@ -123,10 +123,11 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 	
 	
 	
-	/*제일 상단의 본문 댓글 달기*/
+/*제일 상단의 본문 댓글 달기*/	
 	function insertBtn(pseq){
 	 	let step = 0;
-	 	let content= $('#replyInputBox').val();
+	 	let content= $('#replyInputBox'+pseq).val();
+	 	console.log(content);
 		if(pseq == view_seq){
 		 	//본문글의 답글
 	 		step = 1; 
@@ -141,23 +142,63 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 			data: 'pseq='+pseq+"&ref="+view_seq+"&step="+step+"&content="+content,
 			success: function(){
 				//화면에 댓글 로딩해주는 ajax 실행
-				alert("저장 완료");
+				loadReply();
 			}   //success
 		});   //AJAX
-		
-		
 	 	$(".view_replyInputWrapper").remove();
 		$('.checkReplyInput').val('off');
 	}
 function loadReply(){
+	$('.replyInsertDiv').empty();
     	$.ajax({
 				type: 'post',
 				url: '/morip/myblog/loadReply',
 				data: "ref="+view_seq,
 				dataType: 'json',
 				success: function(data){
-					 
-					
+					if(data.list.length!='0'){   //데이터가 존재할 때
+						$.each(data.list, function(index, items){
+							console.log(items.content);
+							let seq = items.blogboardtable_seq;
+							let replyForm=
+							          '<div class="view_replyBoard" id="view_replyBoard'+seq+'">'+
+							            '<div class="view_replyListWrapper">'+
+							              '<div class="view_replyList">'+
+							                '<div class="view_userImgWrapper">'+
+							                  '<img class="view_userImg" src="../image/myblog/game.png">'+
+							                '</div>'+
+							                '<div class="view_replyContent">'+
+							                    '<div class="reply_userID">'+
+							                     items.nickname+
+							                    '</div>'+
+							                    '<div class="reply_content">'+
+							                     '<p>'+
+							                       items.content+
+							                     '</p>'+
+							                    '</div>'+
+							                '</div>'+
+							              '</div>'+
+							              '<div class="view_replyBtnWrapper">'+
+							              	'<div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick('+seq+')">'+
+							                  '답글'+
+							                '</div>'+
+							                '<div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick('+seq+')">'+
+							                  '삭제'+
+							                '</div>'+
+							                '<div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick('+seq+')">'+
+							                 '수정'+
+							                '</div>'+
+							              '</div>'+
+							            '</div>'+
+							          '</div>';
+							  if(items.step==1){  //본문글의 댓글일 때
+							  	$('.replyInsertDiv').append(replyForm);
+							  } else{
+							  	$('#view_replyBoard'+items.pseq).append(replyForm);
+							  	$('#view_replyBoard'+seq).css('padding-left','70px');
+							  }
+						});
+					}
 				}   //success
 			});   //AJAX
 }	
@@ -173,6 +214,9 @@ $('#x-btn').click(function(){
 });
 
 $(document).ready(function(){
+	//댓글 로딩
+	loadReply();
+	
 	var windowWidth = $(window).innerWidth();
     var windowWidth1 = $(window).outerWidth();
     console.log(windowWidth+", "+windowWidth1);

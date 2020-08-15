@@ -49,7 +49,7 @@ public class MyblogController {
 		List <MyblogDTO> list = myblogService.infinityScroll(map);
 		System.out.println(list.size());
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);niyy[hiyy[hhhhhhh]]
+		mav.addObject("list", list);
 		mav.setViewName("jsonView");
 		
 		return mav;
@@ -74,10 +74,8 @@ public class MyblogController {
 		try {
 			FileCopyUtils.copy(backgroundImg.getInputStream(), new FileOutputStream(file));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ModelAndView mav = new ModelAndView();
@@ -163,5 +161,15 @@ public class MyblogController {
 		
 		myblogService.insertReply(map);
 		System.out.println("insertReply 들어와서 저장하는 중...");
+	}
+	@RequestMapping(value="/myblog/loadReply", method= {RequestMethod.POST})
+	public ModelAndView loadReply(HttpSession session, @RequestParam(value="ref") String ref) {
+		System.out.println("작성자"+session.getAttribute("nickname"));
+		ModelAndView mav = new ModelAndView();
+		List <MyblogDTO> list = myblogService.loadReply(Integer.parseInt(ref));
+		mav.addObject("list", list);
+		System.out.println("loadReply 들어와서 저장하는 중...");
+		mav.setViewName("jsonView");
+		return mav;
 	}
 }

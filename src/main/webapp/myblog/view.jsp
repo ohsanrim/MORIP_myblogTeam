@@ -91,15 +91,18 @@
                     <div class="reply_userID">
                       ${myblogDTO.nickname}
                     </div>
-                    <textarea id="replyInputBox" class="form-control" aria-label="With textarea"></textarea>
+                    <textarea id="replyInputBox${seq }" class="form-control" aria-label="With textarea"></textarea>
                     <div class="reply_inputOption">
                       <button id="insertBtn" class="btn btn-light" onclick="insertBtn(${seq})">등록</button>
                     </div>
                 </div>
               </div>
             </div>
-            <input type="hidden" class="replySeq"value="1"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
+            <input type="hidden" class="replySeq" value="1"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
             <input type="hidden" class="checkReplyInput" value="off">
+            <div class="replyInsertDiv">
+            <!-- 댓글이 추가(append)되는 부분  -->
+            </div>
           </div>
         </div>
       </div>

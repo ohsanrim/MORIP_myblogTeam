@@ -16,4 +16,6 @@ public interface MyblogDAO {
 
 	void insertReply(Map<String, String> map);
 
+	List<MyblogDTO> loadReply(int ref);
+
 }

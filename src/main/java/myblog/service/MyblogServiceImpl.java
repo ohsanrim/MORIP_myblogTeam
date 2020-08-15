@@ -41,4 +41,8 @@ public class MyblogServiceImpl implements MyblogService {
 		myblogDAO.insertReply(map);
 		
 	}
+	@Override
+	public List<MyblogDTO> loadReply(int ref) {
+		return myblogDAO.loadReply(ref);
+	}
 }

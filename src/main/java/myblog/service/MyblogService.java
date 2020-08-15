@@ -16,4 +16,6 @@ public interface MyblogService {
 	public void deleteBlogBoard(int seq);
 
 	public void insertReply(Map<String, String> map);
+
+	public List<MyblogDTO> loadReply(int ref);
 }

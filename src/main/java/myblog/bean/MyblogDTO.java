@@ -14,7 +14,9 @@ public class MyblogDTO {
 	private Date startdate;
 	private Date enddate;
 	private int hit;
-	private int reply;
+	private int ref;
+	private int step;
+	private int pseq;
 	private Date logtime;
 	private String publicoption;
 }
