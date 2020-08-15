@@ -68,7 +68,7 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 				if(seq==view_seq){
 					location.href="mypage";
 				} else {
-					loadReply();
+					location.reload(true);
 				}
 		  }
 		})

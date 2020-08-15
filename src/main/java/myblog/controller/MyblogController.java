@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +14,6 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -97,8 +98,10 @@ public class MyblogController {
 	}
 	/*작성한 글 저장*/
 	@RequestMapping(value="/myblog/save", method= {RequestMethod.POST})
-	public @ResponseBody void saveWriteBlog(HttpSession session, @RequestParam Map <String , String> map) {
+	public @ResponseBody void saveWriteBlog(HttpSession session, @RequestParam Map <String , String> map) throws UnsupportedEncodingException {
 		map.put("nickname", "뚜르라기");
+		String content = URLDecoder.decode(map.get("content"), "UTF-8");
+		map.replace("content", content);
 		System.out.println("작성자"+session.getAttribute("nickname"));
 		System.out.println(map.get("subject")+","+map.get("content")+","+map.get("nickname"));
 		myblogService.insertWriteBlog(map);
@@ -107,26 +110,33 @@ public class MyblogController {
 	
 	@RequestMapping(value="/myblog/imageUpload", method= {RequestMethod.POST})
     @ResponseBody
-    public ResponseEntity<?> handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
+    public ModelAndView handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException {
 		UUID uid = UUID.randomUUID();
 		String fileName=uid.toString() + "_" + file.getOriginalFilename();
-		String filePath = "D:\\spring\\MORIP\\MORIP_myblogTeam\\src\\main\\webapp\\storage";
-		File file1 = new File(filePath,fileName);
+		String filePath1 = "D:\\spring\\MORIP\\MORIP_myblogTeam\\src\\main\\webapp\\storage";
+		String filePath2 = "D:\\spring\\MORIP\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\MORIP_myblogTeam\\storage";
+		File file1 = new File(filePath1,fileName);
+		File file2 = new File(filePath2,fileName);
 		try {
 			FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(file1));
+			FileCopyUtils.copy(file.getInputStream(), new FileOutputStream(file2));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		System.out.println("getname()"+file1.getName());
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("url","../storage/"+file1.getName());
+		mav.addObject("fileName"+fileName);
+		mav.setViewName("jsonView");
         try {
             //UploadFile uploadedFile = imageService.store(file);
-            return ResponseEntity.ok().body("../storage/"+file1.getName());
+            //return ResponseEntity.ok().body("../storage/"+file1.getName());
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.badRequest().build();
-        }
+            //return ResponseEntity.badRequest().build();s  
+        }return mav;
     }
 	
 	//**********************travlesWrite 부분*****************************
@@ -175,10 +185,9 @@ public class MyblogController {
 		return mav;
 	}
 	@RequestMapping(value="/myblog/deleteBlogBoard", method=RequestMethod.GET)
-	public void deleteBlogBoard(@RequestParam(value="seq") String seq) {
+	public void deleteBlogBoard(@RequestParam Map <String , String> map) {
 		System.out.println("deleteBlogBoard 들어옴");
-		System.out.println(seq);
-		myblogService.deleteBlogBoard(Integer.parseInt(seq));
+		myblogService.deleteBlogBoard(map);
 		ModelAndView mav = new ModelAndView();
 	}
 	@RequestMapping(value="/myblog/insertReply", method= {RequestMethod.POST})

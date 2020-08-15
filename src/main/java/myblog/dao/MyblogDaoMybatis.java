@@ -34,8 +34,8 @@ public class MyblogDaoMybatis implements MyblogDAO {
 	}
 
 	@Override
-	public void deleteBlogBoard(int seq) {
-		sqlSession.delete("myblogSQL.deleteBlogBoard",seq);
+	public void deleteBlogBoard(Map<String, String> map) {
+		sqlSession.delete("myblogSQL.deleteBlogBoard",map);
 	}
 
 	@Override

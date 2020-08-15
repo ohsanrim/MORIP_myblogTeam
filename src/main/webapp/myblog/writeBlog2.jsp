@@ -30,7 +30,6 @@
 
     <!-- include summernote plugin-->
     <script type="text/javascript" src="../js/summernote-map-plugin-master/summernote-map-plugin.js"></script>
-  	<script type="text/javascript" src="../js/summernote-image-shapes-master/summernote-image-shapes.js"></script>
 	
     <title></title>
   </head>
@@ -167,6 +166,8 @@
   function sendFile(file, el) {
       var form_data = new FormData();
       form_data.append('file', file);
+  	//let filePath = file.value;
+	//alert(path);
       $.ajax({
         data: form_data,
         type: "POST",
@@ -175,9 +176,10 @@
         contentType: false,
         enctype: 'multipart/form-data',
         processData: false,
-        success: function(url) {
-          $(el).summernote('editor.insertImage', url);
-          $('#imageBoard > ul').append('<li><img src="'+url+'" width="480" height="auto"/></li>');
+        dataType:"json",
+        success: function(data) {
+
+          	$('#summernote').summernote('insertImage', data.url, data.fileName);
         }
       });
     }

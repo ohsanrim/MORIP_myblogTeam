@@ -12,7 +12,7 @@ public interface MyblogDAO {
 
 	MyblogDTO getView(int seq);
 
-	void deleteBlogBoard(int seq);
+	void deleteBlogBoard(Map<String, String> map);
 
 	void insertReply(Map<String, String> map);
 

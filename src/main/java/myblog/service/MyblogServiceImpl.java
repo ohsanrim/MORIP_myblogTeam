@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import myblog.bean.MyblogDTO;
 import myblog.dao.MyblogDAO;
 
@@ -32,8 +31,8 @@ public class MyblogServiceImpl implements MyblogService {
 	}
 
 	@Override
-	public void deleteBlogBoard(int seq) {
-		myblogDAO.deleteBlogBoard(seq);
+	public void deleteBlogBoard(Map<String, String> map) {
+		myblogDAO.deleteBlogBoard(map);
 	}
 
 	@Override
