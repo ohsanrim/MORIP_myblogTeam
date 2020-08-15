@@ -30,7 +30,6 @@
        	네비게이션 바
       </nav>
       <div class="backgroundImg">
-
       </div>
       <div class="layer">
       </div>

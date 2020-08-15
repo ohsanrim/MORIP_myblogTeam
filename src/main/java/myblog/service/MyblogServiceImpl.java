@@ -35,4 +35,10 @@ public class MyblogServiceImpl implements MyblogService {
 	public void deleteBlogBoard(int seq) {
 		myblogDAO.deleteBlogBoard(seq);
 	}
+
+	@Override
+	public void insertReply(Map<String, String> map) {
+		myblogDAO.insertReply(map);
+		
+	}
 }

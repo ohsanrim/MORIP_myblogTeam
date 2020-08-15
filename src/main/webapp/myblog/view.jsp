@@ -84,7 +84,7 @@
             </div>
           </div>
           <!--하단의 댓글 창 클릭(아마 이 부분은 AJAX 로 구현하실 것 같은데 class="view_replyBoard" 부븐을 전부 append 해주셔야 할 겁니다. )-->
-          <div class="view_replyBoard" id="view_replyBoard1">
+          <div class="view_replyBoard" id="view_replyBoard">
             <div class="view_boardReplyInputWrapper">
               <div class="view_replyContentInputWrapper">
                 <div class="reply_contentInput">
@@ -93,100 +93,13 @@
                     </div>
                     <textarea id="replyInputBox" class="form-control" aria-label="With textarea"></textarea>
                     <div class="reply_inputOption">
-                      <button id="insertBtn" class="btn btn-light" onclick="insertBtn('+seq+')">등록</button>
+                      <button id="insertBtn" class="btn btn-light" onclick="insertBtn(${seq})">등록</button>
                     </div>
                 </div>
               </div>
             </div>
             <input type="hidden" class="replySeq"value="1"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
             <input type="hidden" class="checkReplyInput" value="off">
-            <div class="view_replyListWrapper">
-              <div class="view_replyList">
-                <div class="view_userImgWrapper">
-                  <img class="view_userImg" src="../image/myblog/pic02.jpg">
-                </div>
-                <div class="view_replyContent">
-                  <div class="reply_userID">
-                   Happy1001
-                  </div>
-                  <div class="reply_content">
-                   <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Volutpat odio facilisis mauris sit amet massa. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Mi eget mauris pharetra et. Non tellus orci ac auctor augue. Elit at imperdiet dui accumsan sit.
-                   </p>
-                  </div>
-                </div>
-              </div>
-              <div class="view_replyBtnWrapper">
-                <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  답글
-                </div>
-                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  삭제
-                </div>
-                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  수정
-                </div>
-              </div>
-            </div>
-            <!--답글 달기 버튼을 클릭하였을 떄 내용이 추가될 div 란-->
-            <div class="view_replyDiv" id="viewReplyDiv">
-              <!--이 안의 코드부분은 전부 AJAX 를 통해서 뿌려주게 될 데이터들-->
-              <div class="view_replyList">
-                <div class="view_userImgWrapper">
-                  <img class="view_userImg" src="../image/myblog/pic01.jpg">
-                </div>
-                <div class="view_replyContent">
-                  <div class="reply_userID">
-                   Ohrin
-                  </div>
-                  <div class="reply_content">
-                   <p>
-                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                   </p>
-                  </div>
-                </div>
-              </div>
-              <div class="view_replyBtnWrapper">
-                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  삭제
-                </div>
-                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  수정
-                </div>
-              </div>
-              <!--만약에 댓글 버튼을 눌렀을 경우, 댓글을 작성할 수 있는 div 영역이 추가되는 부분-->
-            </div>
-          </div>
-          <!--하단의 댓글 창 클릭-->
-          <div class="view_replyBoard" id="view_replyBoard2">
-            <div class="view_replyListWrapper">
-              <div class="view_replyList">
-                <div class="view_userImgWrapper">
-                  <img class="view_userImg" src="../image/myblog/game.png">
-                </div>
-                <div class="view_replyContent">
-                    <div class="reply_userID">
-                     hahahaha
-                    </div>
-                    <div class="reply_content">
-                     <p>
-                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl tincidunt eget nullam non. Quis hendrerit dolor magna eget est lorem ipsum dolor sit.
-                     </p>
-                    </div>
-                </div>
-              </div>
-              <div class="view_replyBtnWrapper">
-                <div id="replyBtn1" class="hvr-grow" onclick="replyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  답글
-                </div>
-                <div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  삭제
-                </div>
-                <div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(${seq})"> <!--댓글 고유의 번호를 통해서 어떤 글인지 확인 가능-->
-                  수정
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -194,6 +107,8 @@
         <i id="view_boardOption" class="fas fa-ellipsis-v" style="cursor:pointer;"></i>
       </div>
     </article>
+    
+    
     <!-- modal 댓글창 띄우기 -->
     <div class="modal fade" id="cmt-modal" role="dialog">
     	<div class="modal-dialog">
@@ -209,7 +124,8 @@
                 <div class="view_replyListWrapper">
                   <div class="view_replyList">
                     <div class="view_userImgWrapper">
-                      <img class="view_userImg" src="../image/myblog/game.png">
+                      <img class="view_userImg" src="../image/myblog/game.png">+++++++++++++
+                      
                     </div>
                     <div class="view_replyContent">
                         <div class="reply_userID">
@@ -265,3 +181,4 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="../js/myblog/view.js"></script>
 </html>
+/

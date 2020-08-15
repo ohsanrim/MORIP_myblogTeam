@@ -14,4 +14,6 @@ public interface MyblogDAO {
 
 	void deleteBlogBoard(int seq);
 
+	void insertReply(Map<String, String> map);
+
 }

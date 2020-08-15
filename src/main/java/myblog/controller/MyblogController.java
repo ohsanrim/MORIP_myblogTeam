@@ -49,8 +49,7 @@ public class MyblogController {
 		List <MyblogDTO> list = myblogService.infinityScroll(map);
 		System.out.println(list.size());
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
-		mav.addObject("pg", pg);
+		mav.addObject("list", list);niyy[hiyy[hhhhhhh]]
 		mav.setViewName("jsonView");
 		
 		return mav;
@@ -156,5 +155,13 @@ public class MyblogController {
 		System.out.println(seq);
 		myblogService.deleteBlogBoard(Integer.parseInt(seq));
 		ModelAndView mav = new ModelAndView();
+	}
+	@RequestMapping(value="/myblog/insertReply", method= {RequestMethod.POST})
+	public @ResponseBody void insertReply(HttpSession session, @RequestParam Map <String , String> map) {
+		map.put("nickname", "뚜르라기");
+		System.out.println("작성자"+session.getAttribute("nickname"));
+		
+		myblogService.insertReply(map);
+		System.out.println("insertReply 들어와서 저장하는 중...");
 	}
 }

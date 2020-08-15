@@ -38,4 +38,9 @@ public class MyblogDaoMybatis implements MyblogDAO {
 		sqlSession.delete("myblogSQL.deleteBlogBoard",seq);
 	}
 
+	@Override
+	public void insertReply(Map<String, String> map) {
+		sqlSession.insert("myblogSQL.insertReply",map);
+	}
+
 }

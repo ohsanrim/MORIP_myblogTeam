@@ -1,4 +1,4 @@
-var view_seq = $('.view_seq').val();  // 
+var view_seq = $('.view_seq').val();  // 원글 ref값
 	$(window).scroll(function () {
 				var height = $(document).scrollTop();
 				if(height>=550){
@@ -120,39 +120,49 @@ var view_seq = $('.view_seq').val();  //
 	  $(".view_replyInputWrapper").remove();
 	  $('.checkReplyInput').val('off');
 	}
-	function insertBtn(seq){
-	  //데이터베이스에 insert작업 진행
-	  alert("게시글을 등록중입니다.");
-	  let replyInputDiv=
-	  '<div class="view_replyDiv" id="viewReplyDiv">'+
-	    '<div class="view_replyList">'+
-	      '<div class="view_userImgWrapper">'+
-	        '<img class="view_userImg" src="../image/pic01.jpg">'+
-	      '</div>'+
-	      '<div class="view_replyContent">'+
-	        '<div class="reply_userID">'+
-	         'Ohrin'+
-	        '</div>'+
-	        '<div class="reply_content">'+
-	         '<p>'+
-	           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'+
-	         '</p>'+
-	        '</div>'+
-	      '</div>'+
-	    '</div>'+
-	    '<div class="view_replyBtnWrapper">'+
-	      '<div id="deleteBtn" class="hvr-grow" onclick="deleteBtnClick(2)">'+
-	        '삭제'+
-	      '</div>'+
-	      '<div id="modifyBtn" class="hvr-grow" onclick="modifyBtnClick(2)"> '+
-	        '수정'+
-	      '</div>'+
-	    '</div>'+
-	  '</div>';
-	  $('#view_replyBoard'+seq).append(replyInputDiv);
-	  $(".view_replyInputWrapper").remove();
-	  $('.checkReplyInput').val('off');
+	
+	
+	
+	/*제일 상단의 본문 댓글 달기*/
+	function insertBtn(pseq){
+	 	let step = 0;
+	 	let content= $('#replyInputBox').val();
+		if(pseq == view_seq){
+		 	//본문글의 답글
+	 		step = 1; 
+	 	} else {
+	 	 	 //본문의 댓글의 답글
+	 		step = 2;
+	 	}
+	 	
+	  	$.ajax({
+			type: 'post',
+			url: '/morip/myblog/insertReply',
+			data: 'pseq='+pseq+"&ref="+view_seq+"&step="+step+"&content="+content,
+			success: function(){
+				//화면에 댓글 로딩해주는 ajax 실행
+				alert("저장 완료");
+			}   //success
+		});   //AJAX
+		
+		
+	 	$(".view_replyInputWrapper").remove();
+		$('.checkReplyInput').val('off');
 	}
+function loadReply(){
+    	$.ajax({
+				type: 'post',
+				url: '/morip/myblog/loadReply',
+				data: "ref="+view_seq,
+				dataType: 'json',
+				success: function(data){
+					 
+					
+				}   //success
+			});   //AJAX
+}	
+	
+	
 
 $('.replyOption').click(function(){
 	$('#cmt-modal').modal();
