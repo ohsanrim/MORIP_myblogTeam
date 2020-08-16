@@ -184,11 +184,11 @@ public class MyblogController {
 		mav.addObject("seq", seq);
 		return mav;
 	}
+	@ResponseBody
 	@RequestMapping(value="/myblog/deleteBlogBoard", method=RequestMethod.GET)
 	public void deleteBlogBoard(@RequestParam Map <String , String> map) {
 		System.out.println("deleteBlogBoard 들어옴");
 		myblogService.deleteBlogBoard(map);
-		ModelAndView mav = new ModelAndView();
 	}
 	@RequestMapping(value="/myblog/insertReply", method= {RequestMethod.POST})
 	public @ResponseBody void insertReply(HttpSession session, @RequestParam Map <String , String> map) {

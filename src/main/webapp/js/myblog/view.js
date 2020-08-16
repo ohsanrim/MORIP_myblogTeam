@@ -62,14 +62,17 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 						      'Deleted!',
 						      '파일이 삭제되었습니다!',
 						      'success'
-						 )
+						 ).then((result) => {
+							if (result.value) {                                 
+			      				if(seq==view_seq){
+									location.href="mypage";
+								} else {
+									location.reload(true);
+								}
+			               }
+				        })
 					}   //success
 				});   //AJAX
-				if(seq==view_seq){
-					location.href="mypage";
-				} else {
-					location.reload(true);
-				}
 		  }
 		})
 	}

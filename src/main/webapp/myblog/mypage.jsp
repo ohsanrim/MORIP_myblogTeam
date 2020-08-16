@@ -173,9 +173,9 @@
   <!-- Core theme JS-->
   <script src="../js/myblog/scripts.js"></script>
   <script>
-      AOS.init({
-          easing: 'ease-out-back',
-          duration: 1000
-      });
+  AOS.init({
+      easing: 'ease-out-back',
+      duration: 1000
+  });
   </script>
 </html>
