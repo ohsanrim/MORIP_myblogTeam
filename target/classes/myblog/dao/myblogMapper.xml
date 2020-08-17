@@ -20,6 +20,9 @@
 	 insert into blogboardtable(blogboardtable_seq, nickname, content, logtime, ref, step, pseq)  values(blogboardtable_seq.nextval, #{nickname }, #{content}, sysdate, #{ref}, #{step}, #{pseq})
 	</insert>
 	<select id="loadReply" resultType="myblog" parameterType="Integer">
-		select * from blogboardtable where ref=#{ref} and step!=0 order by step, logtime
+		select * from blogboardtable where ref=#{ref} and step!=0 order by step, blogboardtable_seq
 	</select>
+	<update id="updateReply" parameterType="java.util.Map">
+		update blogboardtable set content = #{content}, logtime = sysdate where blogboardtable_seq = #{seq}
+	</update>
 </mapper>

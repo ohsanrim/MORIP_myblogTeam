@@ -60,7 +60,6 @@ public class MyblogController {
 	/***********************writeBlog 부분(에세이 작성)**********************/
 	@RequestMapping(value="/myblog/writeBlog1", method=RequestMethod.GET)
 	public ModelAndView writeBlog1(HttpSession session) {
-		
 		session.setAttribute("nickname","뚜르라기"); 
 		System.out.println("writeBlog1 들어옴");
 		ModelAndView mav = new ModelAndView();
@@ -208,5 +207,22 @@ public class MyblogController {
 		mav.setViewName("jsonView");
 		return mav;
 	}
+	@RequestMapping(value="/myblog/selectReply", method=RequestMethod.GET)
+	public ModelAndView selectReply(@RequestParam(value="seq") String seq) {
+		System.out.println("댓글 수정을 위한 데이터 불러오는중...");
+		System.out.println(seq);
+		MyblogDTO myblogDTO= myblogService.viewPage(Integer.parseInt(seq));
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("myblogDTO",myblogDTO);
+		mav.setViewName("jsonView");
+		return mav;
+	}
+	@RequestMapping(value="/myblog/updateReply", method= {RequestMethod.GET})
+	public @ResponseBody void updateReply(HttpSession session, @RequestParam Map <String , String> map) {
+		myblogService.updateReply(map);
+		System.out.println("insertReply 들어와서 저장하는 중...");
+	}
+	
+	
 
 }

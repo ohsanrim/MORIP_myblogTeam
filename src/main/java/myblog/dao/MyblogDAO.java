@@ -18,4 +18,6 @@ public interface MyblogDAO {
 
 	List<MyblogDTO> loadReply(int ref);
 
+	void updateReply(Map<String, String> map);
+
 }

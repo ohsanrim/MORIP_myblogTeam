@@ -18,4 +18,6 @@ public interface MyblogService {
 	public void insertReply(Map<String, String> map);
 
 	public List<MyblogDTO> loadReply(int ref);
+
+	public void updateReply(Map<String, String> map);
 }

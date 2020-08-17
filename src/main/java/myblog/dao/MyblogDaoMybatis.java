@@ -48,4 +48,9 @@ public class MyblogDaoMybatis implements MyblogDAO {
 		return sqlSession.selectList("myblogSQL.loadReply", ref);
 	}
 
+	@Override
+	public void updateReply(Map<String, String> map) {
+		sqlSession.update("myblogSQL.updateReply",map);
+	}
+
 }

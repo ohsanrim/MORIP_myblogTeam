@@ -113,18 +113,83 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 	   $('#view_replyBoard'+seq).append(replyInputDiv);
 		 $('#view_replyBoardModal'+seq).append(replyInputDiv);
 	   $('.checkReplyInput').val('on');
+	    } else {
+	    	resetBtn();
+	    	replyBtnClick(seq);
 	    }
-			$('.view_replyInputWrapper').css('margin-left','50px');
+		$('.view_replyInputWrapper').css('margin-left','50px');
 	  }
+	/*댓글 수정 버튼을 클릭했을 경우*/
+	function modifyBtnClick(seq){
+		//폼 로딩
+	  if($('.checkReplyInput').val()=='off'){
+	    let replyInputDiv =
+	    '<div class="view_replyInputWrapper">'+
+	      '<div class="view_replyContentInputWrapper">'+
+	        '<div class="reply_contentInput">'+
+	            '<div class="reply_userID">'+
+	             '댓글 수정'+
+	            '</div>'+
+	            '<textarea id="replyInputBox'+seq+'" class="form-control" aria-label="With textarea"></textarea>'+
+	            '<div class="reply_inputOption">'+
+	              '<button id="resetBtn" class="btn btn-light" onclick="resetBtn()">취소</button>'+
+	              '<button id="modifyBtn" class="btn btn-light" onclick="modifyBtn('+seq+')">수정</button>'+
+	            '</div>'+
+	        '</div>'+
+	      '</div>'+
+	    '</div>';
+	   $('#view_replyBoard'+seq).append(replyInputDiv);
+		 $('#view_replyBoardModal'+seq).append(replyInputDiv);
+	   $('.checkReplyInput').val('on');
+	    } else {
+	    	resetBtn();
+	    	replyBtnClick(seq);
+	    }
+		$('.view_replyInputWrapper').css('margin-left','50px');
+		//추가된 수정 폼에 값 넣어주기
+		loadReplyOne(seq);
+	  }
+	
+	/*글 수정 버튼 클릭했을 경우*/
+	function modifyBtn(seq){
+		let content = $('#replyInputBox'+seq).val();
+		$.ajax({
+			type: 'get',
+			url: '/morip/myblog/updateReply',
+			data: 'seq='+seq+'&content='+content,
+			success: function(){
+				Swal.fire(
+					      '수정 완료!',
+					      '댓글이 수정되었습니다!',
+					      'success'
+					 ).then((result) => {
+						if (result.value) {                                 
+		      				loadReply();
+		               }
+			        })
+			}   //success
+		});   //AJAX
+	}
+	  
 	/*삭제 버튼 클릭시*/
 	function deleteBtnClick(seq){
 		deleteBoard(seq);
 	}
-
-	/*수정 버튼 클릭시*/
-	function modifyBtnClick(seq){
-	  alert(seq+"수정 버튼 클릭");
+	
+	
+	/*댓글을 하나 불러와서 그 댓글의 아래 텍스트박스 안에 content를 뿌려주는 함수*/
+	function loadReplyOne(seq){
+		$.ajax({
+			type: 'get',
+			url: '/morip/myblog/selectReply',
+			data: 'seq='+seq,
+			dataType:'json',
+			success: function(data){
+				 $('#replyInputBox'+seq).val(data.myblogDTO.content);
+			}   //success
+		});   //AJAX
 	}
+
 	/*취소 버튼 클릭시*/
 	function resetBtn(){
 	  $(".view_replyInputWrapper").remove();
@@ -153,6 +218,18 @@ var view_seq = $('.view_seq').val();  // 원글 ref값
 			success: function(){
 				//화면에 댓글 로딩해주는 ajax 실행
 				loadReply();
+				Swal.fire(
+				      '저장 완료!',
+				      '댓글이 저장되었습니다!',
+				      'success'
+				 ).then((result) => {
+					if (result.value) {                                 
+	      				loadReply();
+	      				if(step==1){
+	      					$("#replyInputBox"+view_seq).val("");
+	      				}
+	               }
+		        })
 			}   //success
 		});   //AJAX
 	 	$(".view_replyInputWrapper").remove();

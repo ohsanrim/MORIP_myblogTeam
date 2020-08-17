@@ -107,6 +107,7 @@ $(document).ready(function(){
 							let enddate = new Date(items.enddate).format('yyyy-MM-dd');  
 							let seq = items.blogboardtable_seq;
 							console.log(tempNumber%3);
+							
 							//처음 시작을 여는 div
 							if(tempNumber%3==0){
 								height+=350;

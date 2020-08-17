@@ -173,8 +173,8 @@ header{
 .content_wrapper{
   height:2000px;
 }*/
-.tableHeadder{
-  font-size:s9px;
+#tableHeadder{
+  font-size:9px;
   width:100%;
 }
 
@@ -185,7 +185,6 @@ display: flex;
 }
 .myblogList .hvr-grow-shadow{
   width:300px;
-  height:300ㄴpx;
   margin:10px;
   padding:10px;
   background-color: #dcdcd3;
