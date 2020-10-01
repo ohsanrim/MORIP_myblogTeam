@@ -102,22 +102,7 @@
         <div class="modal-body">
           <table class="modal_table">
             <tr>
-              <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/paris.jpg"></td>
-              <td id="modal_userID">USER_ID</td>
-              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
-            </tr>
-            <tr>
-              <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/circus.png"></td>
-              <t2d id="modal_userID">USER_ID</td>
-              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
-            </tr>
-            <tr>
               <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/safe.png"></td>
-              <td id="modal_userID">USER_ID</td>
-              <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
-            </tr>
-            <tr>
-              <td style="width:70px;"><img id="modal_userImg"src="../image/myblog/user.png"></td>
               <td id="modal_userID">USER_ID</td>
               <td id="modal_userFollow"><buttton class="btn btn-outline-primary">팔로우</button></td>
             </tr>
